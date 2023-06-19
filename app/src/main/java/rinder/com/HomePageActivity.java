@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.mapbox.android.core.location.LocationEngine;
@@ -27,6 +28,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private MapView mapView;
     private ImageButton alarmButton;
+    private Button StartNavButton;
 
     private OnIndicatorBearingChangedListener onIndicatorBearingChangedListener = new OnIndicatorBearingChangedListener() {
         @Override
@@ -63,7 +65,23 @@ public class HomePageActivity extends AppCompatActivity {
         );
 
         alarmButton = findViewById(R.id.AlarmButton);
+        StartNavButton = findViewById(R.id.StartNavButton);
         alarmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePageActivity.this, AlarmActivity.class);
+                if (isActivityExists(intent)) {
+                    // AlarmActivity already exists, so navigate to it
+                    startActivity(intent);
+                } else {
+                    // AlarmActivity doesn't exist, create a new instance
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+
+        StartNavButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomePageActivity.this, AlarmActivity.class);
