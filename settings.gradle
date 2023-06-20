@@ -23,7 +23,7 @@ dependencyResolutionManagement {
                 
                 password = "sk.eyJ1IjoidG9sb25nc3lwbGlzIiwiYSI6ImNsajNxNW02OTBvYmIzam8wcmxjaGVqeGUifQ.AMFLNnEgS0qeX6bKuZaEcg"
             }
-        }
+        }//
     }
 }
 rootProject.name = "Rinder"
